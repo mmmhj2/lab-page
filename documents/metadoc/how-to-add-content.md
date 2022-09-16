@@ -18,7 +18,7 @@ layout: single
 title: <标题>
 ---
 ```
-其他内容可参见[Jekyll官方文档](https://jekyllrb.com/docs/front-matter/)。
+其他内容可参见[Jekyll官方文档](https://jekyllcn.com/docs/frontmatter/)。
 如果要撰写文档，则`layout`应为`documentation`，且推荐在其中加入`date`（修改时间）和`author`（作者）字段。
 其中，时间的格式为`YYYY-MM-DD HH:MM:SS +0800`。
 4. （可选）保存并在本地生成预览。
@@ -43,3 +43,37 @@ YAML和Python类似，使用空白字符和分行来分隔资料，因此请确�
 
 
 ## 如何在本地编译网站
+
+将修改推送至远端之后仍需要一段时间才能部署到托管平台上，因此在本地编译并预览网站可以节省许多等待时间。
+本网站使用Jekyll构建，此系统在Linux下体验最佳。
+本段以Windows Subsystem For Linux 2为例讲解Windows下的部署。
+官方网站上也提供直接[在Windows下部署的解决方案](https://jekyllcn.com/docs/windows/#installation)。
+在Linux和MacOS系统下的部署和Windows Subsystem For Linux 2下的大同小异。
+本章中相当部分的内容翻译自Jekyll官方网站。
+
+1. 安装WSL2，参见[Microsoft官方文档](https://docs.microsoft.com/zh-cn/windows/wsl/)。
+注意可能需要更新Windows的Linux内核才能成功安装WSL2。
+推荐的Linux发行版为Ubuntu。
+2. 安装依赖环境。包括Ruby、RubyGems等。
+```
+sudo apt-get install ruby-full build-essential zlib1g-dev
+```
+安装RubyGems
+```
+echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+安装Jekyll和Bundler
+```
+gem install jekyll bundler
+```
+3. 将目录切换至网站根目录。此目录下应有`_config.yml`文件。
+执行编译命令。
+```
+bundle exec jekyll serve
+```
+4. 如果出现服务器地址，则编译成功。网站可在`http://127.0.0.1:4000`访问。
+
+也可以使用Dockers进行网站的编译，此处不再赘述。
