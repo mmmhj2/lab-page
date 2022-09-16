@@ -18,7 +18,7 @@ jobs:
               shell: bash
               run: |
                 sudo chmod a+wr ./_site
-                sudo ll
+                sudo ls -al
             - name: Publish
               uses: TencentCloudBase/cloudbase-action@v1.1.0
               with:
