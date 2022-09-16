@@ -1,0 +1,19 @@
+main:
+    - title: "文档"
+      url: /documents/documents
+    - title: "成员"
+      url: /members/frontpage
+      
+docs:
+    - title: "元文档"
+      children:
+        - title: "如何添加内容"
+          url: /documents/metadoc/how-to-add-content
+        - title: "Git 工作流程"
+          url: /documents/metadoc/git-workflow
+        - title: "Markdown 语法"
+          url: /documents/metadoc/markdown-cheatsheet
+
+mems:
+    - title: "成员 1"
+      url: /members/member1
