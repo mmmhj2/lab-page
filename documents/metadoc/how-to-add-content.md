@@ -1,7 +1,11 @@
 ---
-layout: single
+layout: documentation
 title: "如何向网站中添加内容"
+date: 2022-09-16 18:00:00 +0800
+author: 管理员
 ---
+
+本文简述向本网站添加文章的流程。
 
 ## 在本地撰写文章
 
@@ -15,6 +19,8 @@ title: <标题>
 ---
 ```
 其他内容可参见[Jekyll官方文档](https://jekyllrb.com/docs/front-matter/)。
+如果要撰写文档，则`layout`应为`documentation`，且推荐在其中加入`date`（修改时间）和`author`（作者）字段。
+其中，时间的格式为`YYYY-MM-DD HH:MM:SS +0800`。
 4. （可选）保存并在本地生成预览。
 5. 将修改推送至远端。
 
