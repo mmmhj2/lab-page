@@ -19,13 +19,10 @@ jobs:
               uses: actions/setup-node@v2
               with:
                 node-version: '14'
-            - name: Install Tencent Cloudbase
-              shell: bash
-              run: npm i -g @cloudbase/cli
               
             - name: Publish
               shell: bash
               run: |
-                ls
+                sudo npm i -g @cloudbase/cli
                 sudo tcb login --apiKeyId ${{ secrets.QCLOUDAPIKEYID }} --apiKey ${{ secrets.QCLOUDAPIKEY }}
                 sudo tcb hosting deploy ./_site/ -e ${{ secrets.QCLOUDENVID }}
