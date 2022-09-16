@@ -17,7 +17,8 @@ jobs:
             - name: Change permission
               shell: bash
               run: |
-                sudo chmod a+r ./_site
+                sudo chmod a+wr ./_site
+                sudo ll
             - name: Publish
               uses: TencentCloudBase/cloudbase-action@v1.1.0
               with:
