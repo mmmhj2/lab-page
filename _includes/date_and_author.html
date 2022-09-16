@@ -1,0 +1,22 @@
+{% if page.date or page.author %}<p>{% endif %}
+
+{% if page.date %}
+<time class="dt-published" datetime="{{ page.date }}" itemprop="datePublished">
+<small>
+<i class="fa fa-calendar" aria-hidden="true"></i>
+ 修改时间：{{ page.date | date: '%Y-%m-%d' }}
+</small>
+</time>
+{% endif %}
+
+{% if page.author %}
+
+{% if page.date %}<br/>{% endif %}
+<small>
+<i class="fa fa-user" aria-hidden="true"></i>
+作者：{{ page.author }}
+</small>
+
+{% endif %}
+
+{% if page.date or page.author %}</p>{% endif %}
