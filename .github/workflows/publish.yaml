@@ -27,5 +27,5 @@ jobs:
               shell: bash
               run: |
                 ls
-                tcb login --apiKeyId ${{ secrets.QCLOUDAPIKEYID }} --apiKey ${{ secrets.QCLOUDAPIKEY }}
-                tcb hosting deploy ./_site/ -e ${{ secrets.QCLOUDENVID }}
+                sudo tcb login --apiKeyId ${{ secrets.QCLOUDAPIKEYID }} --apiKey ${{ secrets.QCLOUDAPIKEY }}
+                sudo tcb hosting deploy ./_site/ -e ${{ secrets.QCLOUDENVID }}
