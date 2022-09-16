@@ -3,6 +3,10 @@ main:
       url: /documents/documents
     - title: "成员"
       url: /members/frontpage
+    - title: "组会"
+      url: /seminars/seminars
+    - title: "研究"
+      url: /research/research
       
 docs:
     - title: "元文档"
@@ -15,5 +19,9 @@ docs:
           url: /documents/metadoc/markdown-cheatsheet
 
 mems:
-    - title: "成员 1"
+    - title: "教职工"
       url: /members/member1
+    - title: "学生"
+      children:
+        - title: "学生1"
+          url: /members/member1
