@@ -24,8 +24,7 @@ jobs:
               run: npm i -g @cloudbase/cli
               
             - name: Publish
-              working-directory: ./_site
               shell: bash
               run: |
                 tcb login --apiKeyId ${{ secrets.QCLOUDAPIKEYID }} --apiKey ${{ secrets.QCLOUDAPIKEY }}
-                tcb hosting deploy ./ -e ${{ secrets.QCLOUDENVID }}
+                tcb hosting deploy ./_site/ -e ${{ secrets.QCLOUDENVID }}
