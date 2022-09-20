@@ -1,4 +1,4 @@
-name: Automatically publish Jekyll site to Tencent Static Website hosting
+name: Publish Jekyll site to Tencent Static Website hosting
 
 on:
     push:
@@ -14,15 +14,15 @@ jobs:
               uses: actions/checkout@v3
             - name: Jekyll Build
               uses: jerryjvl/jekyll-build-action@v1
-            
-            - name: Install NodeJs
-              uses: actions/setup-node@v2
-              with:
-                node-version: '14'
-              
-            - name: Publish
+            - name: Change permission
               shell: bash
               run: |
-                sudo npm i -g @cloudbase/cli
-                sudo tcb login --apiKeyId ${{ secrets.QCLOUDAPIKEYID }} --apiKey ${{ secrets.QCLOUDAPIKEY }}
-                sudo tcb hosting deploy ./_site/ -e ${{ secrets.QCLOUDENVID }}
+                sudo chmod -Rv a+wr ./_site
+                sudo ls -al
+            - name: Publish
+              uses: TencentCloudBase/cloudbase-action@v1.1.0
+              with:
+                secretId: ${{ secrets.QCLOUDAPIKEYID }}
+                secretKey: ${{ secrets.QCLOUDAPIKEY }}
+                envId: ${{ secrets.QCLOUDENVID }}
+                staticSrcPath: ./_site
