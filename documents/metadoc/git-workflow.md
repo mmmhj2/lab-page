@@ -14,7 +14,8 @@ author: 管理员
 ## 克隆远端库
 
 1. 在欲克隆至的目录单击右键，选择“Git克隆”。
-2. 在URL中输入`git@<主机名>:<远端目录>`。
+2. 在URL中输入`git@<主机名>:/git/website.git`。
+![TortoiseGit克隆](/assets/doc/metadoc/git-clone.png){: .align-center}
 3. 勾选加载Putty密钥，并选择分发给您的密钥文件。其拓展名通常为`.ppk`。
 4. 确认并克隆。
 
@@ -37,12 +38,17 @@ Git服务器负责网页原始内容的储存与同步；
 Jekyll构建器负责将Markdown文件渲染为HTML网页；
 Apache服务器则提供HTTP访问。
 
-Git服务器使用SSH方式登录，权限为`server`用户组下的`git`用户。
+Git服务器使用SSH方式登录，权限为`git`用户组下的`git`用户。
 出于安全原因考虑，该用户不能使用SHELL终端，也不能进行SSH转发。
 关于Git服务器的搭建，参见[Git官方文档](https://git-scm.com/book/en/v2/Git-on-the-Server-Setting-Up-the-Server)。
 
-利用Linux的crontab服务，Jekyll每隔一段时间就将网页编译一次，由`server`用户组下的`jekyll`用户执行。
+利用Linux的crontab服务，Jekyll每隔五分钟就将网页编译一次，由`git`用户组下的`jekyll`用户执行。
 其具体包括以下步骤：
-1. 从本地克隆网站Git库的`master`分支。
-2. 执行Jekyll构建，并将输出重定向至Apache服务器目录。
+1. 设置环境变量。
+2. 从本地克隆网站Git库的主分支（`master`）。
+3. 执行Jekyll构建。
+4. 将输出复制到与`/var/www/html`符号链接的目录下。
+5. 删除克隆的本地库。
+
+脚本文件可见网站根目录下的[`update.sh`](/update.sh)
 
