@@ -1,9 +1,7 @@
 ---
-layout: single
+layout: splash
 classes: nonwide
-gallery:
-  - image_path: /assets/full_landscape_1.jpg
-  - image_path: /assets/full_landscape_2.jpg
+title: "BUAA UAV Laboratory"
+header:
+    image: /assets/full_landscape_1.jpg
 ---
-
-{% include gallery %}
