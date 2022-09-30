@@ -304,10 +304,3 @@ defaults:
     values:
       sidebar:
         nav: "docs"
-
-  # members
-  - scope:
-      path: "members"
-    values:
-       sidebar:
-         nav: "mems"

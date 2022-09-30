@@ -2,7 +2,7 @@ main:
     - title: "文档"
       url: /documents/documents
     - title: "成员"
-      url: /members/frontpage
+      url: /members/members
     - title: "组会"
       url: /seminars/seminars
     - title: "研究"
