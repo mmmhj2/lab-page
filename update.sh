@@ -21,7 +21,7 @@ bundle exec jekyll build
 cd ~
 
 echo "* Updating _site directory"
-cp --recursive --update website/_site _site
+cp --recursive --force ~/website/_site ~/_site
 
 echo "* Removing local repo"
 rm --recursive website
